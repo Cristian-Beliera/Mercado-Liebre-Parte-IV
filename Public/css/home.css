@@ -27,43 +27,84 @@ h5 {
 
 header {
     background-color: var(--primaryAmarillo);
-    padding-top: 20px;
+     padding-top: 20px;
+     display: flex;
+     flex-wrap: wrap;
+    /*padding-bottom: 20px; */
     
 }
 
-.top-bar {
+/* .top-bar {
     border: 1px dotted red;
-    display:flex;  
-    widows: 100%;
-    justify-content: space-around;
-    margin-top: 15px;
-}
-
-header div.top-bar a {
-    border: 2px dotted gray;
-    
-}
-
-.logo {
-    border: 2px dotted greenyellow;
+    display:flex; 
+    flex-wrap: wrap; 
     width: 100%;
-    height: 40px;
-    display: inline-block;
+    height: 9vh;
+    justify-content: space-between;
+    margin-top: 15px;
+    
+} */
+
+/* header div.logo a {
+    
+    justify-content: left;
+    width: 50%;
+    margin-left: 15px;
+}
+ */
+header div.logo {
+    
+    width: 46%;
+    margin-left: 20px;
+    
 } /* dentro de header hay un elemento div que tiene una clase logo */
 
-.bar-search {
-    border: 2px dotted plum;
-    height: 50px;
+header div.bar-search {
+    display: flex;
+    width: 45%;
+    padding-left: 10px;
+    padding-top: 10px;
 }
 
-.magnifying-glass i {
-    border: 2px dotted orange;
+header div.bar-search input {
+    display: flex;
+    border: none;
+   
+    height: 7.5vh;
     
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    align-items: left;
+}
+
+button.magnifying-glass {   
+    width: 10%; 
+    color: var(--grisOscuro);
+    border: none;
+    background-color: white;
+    height: 7.5vh;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    
+}
+.magnifying-glass i {
+    align-items: flex-end;
+    color: var(--grisOscuro);
 }
 
 .copy-header {
-    border: 2px dotted skyblue;
+    display: block;
+   
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
 }
+header div nav.header-bars {
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
 
 p {
     font-size: var(--tamañoLetra);
@@ -74,12 +115,17 @@ header p {
     margin-bottom: 20px;
 }
 
+.header-bars {
+    display: flex;
+    justify-content:space-around; 
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+
 header nav ul li a {
     font-size: var(--tamañoLetra);
     padding: 0 5px;
 }
-
-
 
 .burguer-menu {
     display: flex;
@@ -90,17 +136,19 @@ header nav ul li a {
     height: 27px;
     align-items: center;
     justify-content: center;
-    margin: 20px auto auto;
+    margin: 0px auto 20px;
 }
 
 /* SECCIONES */
 
 main {
     background-color: var(--grisClaro);
-    width: auto;
+    width: 90%;
+    margin: 0 auto;
     display: block;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: center;
+    align-items: center;
 }
 
 .banner {
@@ -115,9 +163,10 @@ img.photo {
 /*------------------ PRODUCTOS----------- */
 main h4 {
     display: block;
+    width: 100%;
     font-size: var(--titulares);
     color: var(--grisOscuro);
-    margin: 10px auto 20px 60px;
+    margin: 10px auto 20px 20px;
     text-align: left;
 }
 
@@ -132,6 +181,7 @@ article.products {
 
 .section__products, .section__offers {
     width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;  
@@ -236,20 +286,33 @@ footer span {
 /* MEDIAS QUERIES */
 
 /* MOBILE */
-@media screen and (min-width: 360px) {
-   
-
+@media screen and (min-width: 320px) {
+   /*  header {
+        justify-content: space-around;
+    } */
     .header-bars {      
         display: none;    
     }
 
-    .bar-search {
-    border-radius: 8px;
-    }
-    button {
-        
+    header div.bar-search input {
+       /*  width: 30%;
+        display: flex;
+        align-items: center; */
+        flex-grow: 1;
     }
     
+    /* button.magnifying-glass {
+       
+    } */
+
+    .bar-search input:focus {
+        outline: none;
+    }
+    .bar-search input::placeholder {
+        color: var(--grisOscuro);
+        font-family: var(--familia);
+    }
+
     main h5 {
         display: none;
     }
@@ -264,11 +327,6 @@ footer span {
 
     article.products .description i {
         font-size: 80%;
-        /* color: var(--verde);
-        margin-top: 20px;
-        padding: 5px 5px 15px;
-        border: 1px solid var(--verde);
-        background-color: #FFF; */
         width: 12px;
         height: 3px;
         border-radius:100%;  
@@ -277,20 +335,80 @@ footer span {
 }
 
 /* TABLET */
-@media screen and (min-width: 768px) {
-    
-    .header-bars {
+@media screen and (min-width: 720px) {
+    header {
         display: flex;
-        justify-content:space-between; 
         flex-wrap: wrap;
     }
 
-    .header-bars ul {
+    header div.logo {
+    
+    width: 28%;
+    padding-left: 20px;
+} 
+    header div.bar-search {
+        width: 28%;
+        align-items: center;
+    }
+
+    header div.bar-search input {
+    font-size: var(--tamañoLetra);
+    color: var(--grisOscuro);
+    display: block;
+    border: none;
+    width: 100px;
+    height: 2vh;
+    
+    border-radius: 0;
+    margin-right: 10px;
+}
+
+    button.magnifying-glass { 
+    width: 18px;   
+    border: 1px solid var(--grisOscuro);
+    border-radius: 0;
+    background-color: white;
+    height: 2vh;
+    margin-right: 20px;
+    
+}
+
+    .copy-header {
+   
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-size: var(--tamañoLetra); 
+    width: 384px;
+    margin-right: 10px;
+    padding-top: 20px;
+    justify-content: right;
+    
+}
+
+    .header-bars {
+    
+    width: 100%;
+    display: flex; 
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-right: 20px ;
+    margin-left: 20px;
+}
+
+    .header-bars ul li {
         display: flex;
+        flex-direction: row;
+        padding: 0 5px;  
     }
     
-    .header-bars li {
-        margin: 0 5px;
+    .header-bars ul.top-list2 li a{
+       display: flex;
+       flex-direction: row;
+
     }
     
     main article.products {
@@ -310,7 +428,8 @@ footer span {
     }
 
     article.products {  
-    max-width: 350px;  
+    max-width: 255px;  
+    padding: 30px;
 }
 
     article.products .description i {
@@ -352,6 +471,7 @@ footer span {
 
     article.products {  
         max-width: 220px;
+        padding: 0;
     }  
 
     article.products .container i {
